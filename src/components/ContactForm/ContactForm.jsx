@@ -25,12 +25,12 @@ export const ContactForm = () =>  {
   const onSubmit = ({name, number}) => {
     if (contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())) {
       alert(`${name} is already in contacts.`);
-      return reset();
+      return;
     }
     if (contacts.some(contact => contact.number === number)) {
       const findContact = contacts.find(contact => contact.number === number);
       alert(`${number} is already in contacts as ${findContact.name}.`);
-      return reset();
+      return;
     }
     dispatch(addContact({name, number})); 
     reset();
